@@ -1,0 +1,42 @@
+version: "3.8"
+
+volumes:
+    vstorage:
+        driver: local
+        driver_opts:
+            type: "none"
+            o: "bind"
+            device: "./vstorage" # To Local directory 'vstorage'
+
+services:
+    service1:
+        build: ./service1
+        environment:
+            - SERVICE2_URL=http://service2:5000
+            - STORAGE_URL=http://storage:8080
+        ports:
+            - "8199:8199" # Host port 8199 maps to container port 8199
+        volumes:
+            - vstorage:/app/vstorage
+        depends_on:
+            - service2
+            - storage
+        networks:
+            - app_net
+
+    service2:
+        build: ./service2
+        environment:
+            - STORAGE_URL=http://storage:8080
+        volumes:
+            - vstorage:/app/vstorage
+        networks:
+            - app_net
+    storage:
+        build: ./storage
+        networks:
+            - app_net
+
+networks:
+    app_net:
+        driver: bridge
