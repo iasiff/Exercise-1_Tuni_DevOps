@@ -1,0 +1,17 @@
+The used LLM tool:
+
+ChatGPT is used to get initial python with flask code for service 2 and calculating system uptime using psutil and diskspace
+
+Motivation/reason to use LLM:
+
+I do not know about python flask framework and psutil
+
+How and why LLM helped:
+
+LLM helped me to write the basic structure of the code and calculating the system uptime and diskspace
+
+What kind of mistakes LLM did:
+Nothing
+
+What were things that LLM was not able to provide:
+Nothing
