@@ -124,6 +124,7 @@ public class BusinessLogicService {
         } catch (ResourceAccessException | HttpClientErrorException e) {
 
             System.err.println("Service1: ERROR posting to Storage: " + e.getMessage());
+            System.err.println("env is: " + env.getProperty("storage.url"));
 
         }
     }

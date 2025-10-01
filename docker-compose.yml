@@ -13,7 +13,7 @@ services:
         build: ./service1
         environment:
             - SERVICE2_URL=http://service2:5000
-            - STORAGE_URL=http://storage:8080
+            - STORAGE_URL=http://storage:8080/log
         ports:
             - "8199:8199" # Host port 8199 maps to container port 8199
         volumes:
@@ -27,7 +27,7 @@ services:
     service2:
         build: ./service2
         environment:
-            - STORAGE_URL=http://storage:8080
+            - STORAGE_URL=http://storage:8080/log
         volumes:
             - vstorage:/app/vstorage
         networks:

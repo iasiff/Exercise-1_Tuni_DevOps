@@ -16,7 +16,7 @@ public class BusinessLogic {
     private static final Logger LOG = LoggerFactory.getLogger(BusinessLogic.class);
 
 
-    Path baseDir = Paths.get(".").toAbsolutePath().normalize();
+    Path baseDir = Paths.get("/tmp").toAbsolutePath().normalize();
     Path logFile = baseDir.resolve("log.txt");
 
     public ResponseEntity<Void> postLog(String record){
@@ -24,16 +24,18 @@ public class BusinessLogic {
         try {
 
             if (Files.notExists(logFile)) {
+
                 try{
                     Files.createFile(logFile);
-                    LOG.info("Service-Storage: Created file: {}", logFile);
+                    LOG.info("Service-Storage: Created Log file : {}", logFile);
                 }
                 catch (IOException e) {
                     LOG.debug("Service-Storage:",e);
                 }
 
-            } else {
-                LOG.info("Service-Storage: File already exists: {}", logFile);
+            }
+            else {
+                LOG.info("Service-Storage: file already exists here: {}", logFile);
             }
 
             Files.writeString(logFile, record+"\n",

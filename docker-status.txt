@@ -1,0 +1,17 @@
+docker container ls
+
+
+CONTAINER ID   IMAGE                  COMMAND                  CREATED              STATUS              PORTS                                                   NAMES
+a06d8234d3bd   tuni_devops-service1   "java -XX:+UseContai…"   About a minute ago   Up About a minute   8080/tcp, 0.0.0.0:8199->8199/tcp, [::]:8199->8199/tcp   tuni_devops-service1-1
+7c5257c41289   tuni_devops-storage    "java -XX:+UseContai…"   About a minute ago   Up About a minute   8080/tcp                                                tuni_devops-storage-1
+c566adc665b9   tuni_devops-service2   "gunicorn --bind 0.0…"   About a minute ago   Up About a minute   5000/tcp                                                tuni_devops-service2-1
+
+
+docker network ls
+
+
+NETWORK ID     NAME                  DRIVER    SCOPE
+52401a60f3f8   bridge                bridge    local
+791842f1aea5   host                  host      local
+d1e593ac58ca   none                  null      local
+150c1df5d2e5   tuni_devops_app_net   bridge    local

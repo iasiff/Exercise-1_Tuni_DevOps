@@ -5,8 +5,10 @@ COPY src ./src
 RUN mvn clean package
 
 FROM bellsoft/liberica-openjdk-alpine-musl:21
-
+RUN addgroup -S mygrp && adduser -S appusr -G mygrp
 WORKDIR /app
 COPY --from=builder /app/target/*.jar app.jar
+RUN chown -R appusr:mygrp /app
+USER appusr
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+CMD ["java", "-XX:+UseContainerSupport", "-XX:+UseG1GC", "-XX:MaxRAM=256m", "-XX:+AlwaysPreTouch", "-jar", "app.jar"]

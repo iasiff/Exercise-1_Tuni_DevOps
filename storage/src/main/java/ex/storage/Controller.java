@@ -14,11 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
 
 
-    private BusinessLogic service;
+    private final BusinessLogic service;
 
     public Controller(BusinessLogic service) {
         this.service = service;
     }
+
 
     @PostMapping(value = "/log", consumes = MediaType.TEXT_PLAIN_VALUE)
     public ResponseEntity<Void> postLog(@RequestBody String record) {

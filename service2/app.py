@@ -1,3 +1,4 @@
+import os
 import time
 import shutil
 import requests
@@ -9,7 +10,7 @@ from flask import Flask
 
 app = Flask(__name__)
 
-STORAGE_URL = "http://storage:8080"
+STORAGE_URL = os.environ.get('STORAGE_URL', 'http://localhost:8080/log')
 
 base_dir = Path.cwd()
 

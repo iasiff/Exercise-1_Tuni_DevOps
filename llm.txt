@@ -1,17 +1,18 @@
 The used LLM tool:
 
-ChatGPT is used to get initial python with flask code for service 2 and calculating system uptime using psutil and diskspace
+ChatGPT is used to get initial python with flask code for service 2 and calculating system uptime using psutil and diskspace. Also helped me to write Dockerfile for python application
 
 Motivation/reason to use LLM:
 
-I do not know about python flask framework and psutil
+I do not know about python flask framework, psutil and Dockerfile for python
 
 How and why LLM helped:
 
-LLM helped me to write the basic structure of the code and calculating the system uptime and diskspace
+LLM helped me to write the basic structure of the code and calculating the system uptime and diskspace and writing Dockerfile
 
 What kind of mistakes LLM did:
-Nothing
+
+While writing Dockerfile of python app, which is service-2, it gave me basic Dockerfile without security consideration.
 
 What were things that LLM was not able to provide:
 Nothing
